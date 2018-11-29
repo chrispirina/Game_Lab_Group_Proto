@@ -1,68 +1,18 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public enum Gamestate
-{
-    TITLE,
-    INGAME,
-    PAUSE,
-    GAMEOVER
-}
-public enum Difficulty
-{
-    EASY,
-    MEDIUM,
-    HARD,
-    HELL,
-    GODMODE
-}
+public class GameManager : MonoBehaviour {
 
-public class GameManager : MonoBehaviour
-{
-    // This will be inherited by outside scripts.
-    public static GameManager instance;
 
-    public int score = 0;
-    public int lives;
-    public float timer = 120;
-
-    public int difficultyIncreaseRate = 10;
-
-    public int conditionsMet;
-    public int conditionsCount;
-    public int enemiesKilled = 0;
-
-    public Difficulty difficulty;
-    public Gamestate gameState;
-
-    private void Awake()
+	void Start ()
     {
-        instance = this;
-
-        conditionsMet = 0;
-        conditionsCount = 0;
-    }
-
-    // Use this for initialization
-    void Start()
+		
+	}
+	
+	// Update is called once per frame
+	void Update ()
     {
-        difficulty = Difficulty.EASY;
-        gameState = Gamestate.TITLE;
-    }
-
-    void Update()
-    {
-        timer -= Time.deltaTime;                   
-    }
-
-    void LoadNewScene()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void CycleDifficulty()
-    {
-        difficulty = (Difficulty)(Math.Min(Enum.GetValues(typeof(Difficulty)).Length - 1, (int)difficulty + 1));
-    }
+		
+	}
 }
