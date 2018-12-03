@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Door_Fireescape_modularparts.ma
-//Last modified: Mon, Dec 03, 2018 03:25:06 PM
+//Last modified: Mon, Dec 03, 2018 03:28:11 PM
 //Codeset: 1252
 requires maya "2018";
 currentUnit -l centimeter -a degree -t film;
@@ -829,13 +829,13 @@ createNode mesh -n "polySurfaceShape1" -p "rails";
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode transform -n "persp1";
 	rename -uid "850E90E8-4F33-E8F4-3CBA-4489479942EB";
-	setAttr ".t" -type "double3" 73.534617865658987 20.300273294185395 4.0361098058298719 ;
-	setAttr ".r" -type "double3" -9.9383527362421606 -2072.9999999997076 3.0385942190576629e-14 ;
+	setAttr ".t" -type "double3" 46.163058550988453 15.481471107413265 -13.086858999638313 ;
+	setAttr ".r" -type "double3" -10.538352736087681 -2058.1999999997324 0 ;
 createNode camera -n "persp1Shape" -p "persp1";
 	rename -uid "ECF0CEB6-43A2-51B5-4EF1-E8B977ED9344";
 	setAttr -k off ".v";
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 92.11046962138704;
+	setAttr ".coi" 64.012383631536807;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -853,386 +853,29 @@ createNode mesh -n "Airconditioner_unitShape" -p "Airconditioner_unit";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.12468749843537807 ;
+	setAttr ".pv" -type "double2" 0.50000001490116119 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 40 ".pt[0:39]" -type "float3"  0 0 0.098019503 0 0 0.098019503 
-		0 0 0.098019503 0 0 0.098019503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-		0 0.098019503 0 0 0.098019503 0 0 0.098019503 0 0 0.098019503 0 0 0.098019451 0 0 
-		0.098019451 0 0 0.098019503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.098019503 0 0 0.098019451 
-		0 0 0.098019451 0 0 0.098019503 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.098019503 0.023288729 
-		-0.021201052 0.023554891 0.023288729 -0.021201052 0.074464612 0.023288729 0.021201052 
-		0.023554891 0.023288729 0.021201052 0.074464612 -0.023288729 -0.037599802 0.058065888 
-		-0.023288729 -0.037599802 0.039953634 -0.023288729 0.037599813 0.058065888 -0.023288729 
-		0.037599813 0.039953634;
+	setAttr -s 40 ".pt[0:39]" -type "float3"  0 0 0.3418594 0 0 0.3418594 
+		0 0 0.3418594 0 0 0.3418594 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3418594 
+		0 0 0.3418594 0 0 0.3418594 0 0 0.3418594 0 0 0.34185934 0 0 0.34185934 0 0 0.3418594 
+		0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3418594 0 0 0.34185934 0 0 0.34185934 0 0 0.3418594 
+		0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3418594 0.023288729 -0.021201052 0.023554891 0.023288729 
+		-0.021201052 0.31830454 0.023288729 0.021201052 0.023554891 0.023288729 0.021201052 
+		0.31830454 -0.023288729 -0.037599802 0.30190581 -0.023288729 -0.037599802 0.039953634 
+		-0.023288729 0.037599813 0.30190581 -0.023288729 0.037599813 0.039953634;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "Aircon_Filters";
-	rename -uid "D9854410-4541-3114-C505-9CAA4DBF289B";
-createNode transform -n "pCube2" -p "Aircon_Filters";
-	rename -uid "50F6BD48-418F-92EA-7C65-FAA8BB64551A";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.8899503921170346 0.38090222682238528 ;
-	setAttr ".r" -type "double3" 14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape2" -p "pCube2";
-	rename -uid "C5971643-446A-0F27-554E-A6A6D9450E61";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube3" -p "Aircon_Filters";
-	rename -uid "5DBEBAF0-45AD-DD9C-EF36-F58D968E94F4";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.5944127821846292 0.38090222682238528 ;
-	setAttr ".r" -type "double3" 14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape3" -p "pCube3";
-	rename -uid "7DAF108E-40FC-D431-0462-3A8ADC313A01";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube4" -p "Aircon_Filters";
-	rename -uid "178B4372-4428-45DE-0A53-F3A8D7440111";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.2960724191056325 0.38090222682238528 ;
-	setAttr ".r" -type "double3" 14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape4" -p "pCube4";
-	rename -uid "9101E457-4C7C-E523-6343-FAA37F3640ED";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube5" -p "Aircon_Filters";
-	rename -uid "C3EB1E6B-44A9-2C51-86AB-FD877685CEFF";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.0153627942198407 0.38090222682238528 ;
-	setAttr ".r" -type "double3" 14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape5" -p "pCube5";
-	rename -uid "31062EFA-4EA2-AB42-AFB7-0D97F14F44E3";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube6" -p "Aircon_Filters";
-	rename -uid "2B6656C6-45D9-F330-49D2-7AABB7C3F4A2";
-	setAttr ".t" -type "double3" 1.5119532525387449 5.6787151135919123 0.38090222682238528 ;
-	setAttr ".r" -type "double3" 14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape6" -p "pCube6";
-	rename -uid "A6498D19-4F84-CEC1-5757-A6914145EB1C";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube7" -p "Aircon_Filters";
-	rename -uid "CC5E918E-4507-CB4F-086C-559EDF4BA5F5";
-	setAttr ".t" -type "double3" 1.5119532525387449 5.6787151135919123 8.2701174528452324 ;
-	setAttr ".r" -type "double3" -14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape7" -p "pCube7";
-	rename -uid "9035D359-4DDE-6233-B033-9E8757C2AB2E";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube8" -p "Aircon_Filters";
-	rename -uid "008BB95C-4462-942D-546D-F69C677EB62C";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.0153627942198407 8.2701174528452324 ;
-	setAttr ".r" -type "double3" -14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape8" -p "pCube8";
-	rename -uid "1E8CB6DA-4624-72F5-71A3-769EA496DF8A";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube9" -p "Aircon_Filters";
-	rename -uid "945FDB08-46C6-A166-A046-52A8953A6467";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.2960724191056325 8.2701174528452324 ;
-	setAttr ".r" -type "double3" -14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape9" -p "pCube9";
-	rename -uid "0D6CAEE6-45C8-FEC2-C205-D99F5FDA0163";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube10" -p "Aircon_Filters";
-	rename -uid "DC1E82B2-4224-1C70-7E51-A79DC67AC215";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.5944127821846292 8.2701174528452324 ;
-	setAttr ".r" -type "double3" -14.999999999999998 0 0 ;
-	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
-	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape10" -p "pCube10";
-	rename -uid "FA799DF6-46B8-8753-8BF0-DA8A9B423110";
-	setAttr -k off ".v";
-	setAttr ".vir" yes;
-	setAttr ".vif" yes;
-	setAttr ".uvst[0].uvsn" -type "string" "map1";
-	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
-		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
-		 0.875 0.25 0.125 0 0.125 0.25;
-	setAttr ".cuvs" -type "string" "map1";
-	setAttr ".dcc" -type "string" "Ambient+Diffuse";
-	setAttr ".covm[0]"  0 1 1;
-	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
-		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
-	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
-		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
-	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
-		f 4 0 5 -2 -5
-		mu 0 4 0 1 3 2
-		f 4 1 7 -3 -7
-		mu 0 4 2 3 5 4
-		f 4 2 9 -4 -9
-		mu 0 4 4 5 7 6
-		f 4 3 11 -1 -11
-		mu 0 4 6 7 9 8
-		f 4 -12 -10 -8 -6
-		mu 0 4 1 10 11 3
-		f 4 10 4 6 8
-		mu 0 4 12 0 2 13;
-	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
-	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
-	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
-	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
-	setAttr ".ai_translator" -type "string" "polymesh";
-createNode transform -n "pCube11" -p "Aircon_Filters";
+createNode transform -n "aircon_filter";
 	rename -uid "99AEE639-4152-6197-97CC-3FB8F37D4C83";
-	setAttr ".t" -type "double3" 1.5119532525387449 6.8899503921170346 8.2701174528452324 ;
+	setAttr ".t" -type "double3" 0.49999996355494258 0.83490935394209131 0.5 ;
 	setAttr ".r" -type "double3" -14.999999999999998 0 0 ;
 	setAttr ".s" -type "double3" 4.7881258256660688 0.41962820300941472 0.11776028842338902 ;
 	setAttr ".rp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
 	setAttr ".sp" -type "double3" -0.49999996355494258 -0.50000015327375635 -0.5 ;
-createNode mesh -n "pCubeShape11" -p "pCube11";
+createNode mesh -n "aircon_filterShape" -p "aircon_filter";
 	rename -uid "2ABC5A7A-4655-5199-0A3B-13BE8F234A85";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
@@ -1687,9 +1330,6 @@ createNode polyTweak -n "polyTweak2";
 	setAttr ".uopa" yes;
 	setAttr -s 4 ".tk[32:35]" -type "float3"  0 -0.0098195225 0.0098195225
 		 0 -0.0098195225 -0.0098195225 0 0.0098195225 0.0098195225 0 0.0098195225 -0.0098195225;
-createNode polyCube -n "polyCube3";
-	rename -uid "49D43190-4CE2-A777-F712-59A4C4572471";
-	setAttr ".cuv" 4;
 createNode polySplitEdge -n "polySplitEdge2";
 	rename -uid "71CBE5F9-4A13-BDC1-99C8-1C9201FC9E78";
 	setAttr ".uopa" yes;
@@ -1792,7 +1432,7 @@ select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
-	setAttr -s 13 ".dsm";
+	setAttr -s 4 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -1809,7 +1449,6 @@ connectAttr "groupId1.id" "DoorShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "DoorShape.iog.og[0].gco";
 connectAttr "polyCloseBorder3.out" "railsShape.i";
 connectAttr "polyExtrudeFace3.out" "Airconditioner_unitShape.i";
-connectAttr "polyCube3.out" "pCubeShape2.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -1892,15 +1531,6 @@ connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "DoorShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "railsShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Airconditioner_unitShape.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape3.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape4.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape5.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape6.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape7.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape8.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape9.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape10.iog" ":initialShadingGroup.dsm" -na;
-connectAttr "pCubeShape11.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "aircon_filterShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "groupId1.msg" ":initialShadingGroup.gn" -na;
 // End of Door_Fireescape_modularparts.ma
