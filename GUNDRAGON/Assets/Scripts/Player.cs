@@ -8,11 +8,16 @@ public class Player : MonoBehaviour
     public float fireRate = 0.5f;
     public float gunDamage = 2.0f;
 
-    float hitMelee = 0;
-    public float meleeRate = 0.3f;
+    public float hitMelee = 0;
+    public float meleeRate = 0.1f;
     public float meleeDamage = 10.0f;
+    public static bool didSmack = false;
 
-    public float health = 100.0f;
+    public bool playerWasHit = false;
+
+    public float health;
+    public static float publicPlayerHealth = 100.0f;
+
     Transform gunPos;
     Transform meleePos;
     Vector3 fwdGun;
@@ -24,11 +29,16 @@ public class Player : MonoBehaviour
         meleePos = GameObject.FindGameObjectWithTag("MeleeHitbox").transform;
         gunPos = GameObject.FindGameObjectWithTag("GunEmitter").transform;
         playerAnimator = GetComponent<Animator>();
+        health = publicPlayerHealth;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (health > publicPlayerHealth)
+        {
+            health = publicPlayerHealth;
+        }
         fwdGun = gunPos.TransformDirection(Vector3.forward);
 
         if (shootGun <= 0)
@@ -43,12 +53,27 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Can't shoot yet");
             shootGun -= Time.deltaTime;
-        } 
-	}
+        }
+        if (hitMelee <= 0)
+        {
+            didSmack = false;
+            if (Input.GetMouseButtonDown(0))
+            {
+                MeleeAttack();
+                hitMelee = meleeRate;
+            }
+        }
+        if (hitMelee > 0)
+        {
+            didSmack = true;
+            Debug.Log("Can't hit yet");
+            hitMelee -= Time.deltaTime;
+        }
+    }
 
     void MeleeAttack()
     {
-
+        playerAnimator.SetTrigger("MeleeAttack");
     }
 
     public void Shoot()
@@ -58,12 +83,12 @@ public class Player : MonoBehaviour
         if (Physics.Raycast(gunPos.position, fwdGun, out hit, Mathf.Infinity))
         {
             Debug.DrawRay(gunPos.position, fwdGun * hit.distance, Color.green);
-            Debug.Log("Hit Something");
             if (hit.collider.CompareTag("Enemy"))
             {
                 hit.transform.gameObject.GetComponent<Enemy>().enemyHealth -= gunDamage;
                 ScoreManager.Instance.CombatScore += ScoreManager.Instance.gunAttackScore * ScoreManager.Instance.comboModifier;
                 ScoreManager.Instance.hitCount += 1;
+                Debug.Log("Hit an Enemy");
 
             }
         }

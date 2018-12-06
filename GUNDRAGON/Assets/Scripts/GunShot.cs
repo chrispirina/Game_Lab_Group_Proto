@@ -28,10 +28,12 @@ public class GunShot : MonoBehaviour
         if(Physics.Raycast(gunPos.position, fwd, out hit, Mathf.Infinity))
         {
             Debug.DrawRay(gunPos.position, fwd * hit.distance, Color.green);
-            Debug.Log("Hit Something");
+            
             if (hit.collider.CompareTag("Enemy"))
             {
                 gameObject.GetComponent<Enemy>().enemyHealth -= 1;
+                Debug.Log("Hit an Enemy");
+                ScoreManager.Instance.hitCount += 0.5f;
                 
             }
         }
