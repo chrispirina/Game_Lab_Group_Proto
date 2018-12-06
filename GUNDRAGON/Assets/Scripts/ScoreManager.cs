@@ -13,8 +13,8 @@ public class ScoreManager : MonoBehaviour
     public float comboModifier = 1.0f;
     public int meleeAttackScore = 20;
     public int gunAttackScore = 10;
-    public int currentHitCount = 0;
-    public int hitCount = 0;
+    public float currentHitCount = 0.0f;
+    public float hitCount = 0.0f;
     public float comboTimer = 0;
     public float maxComboTimer = 3.0f;
 
@@ -46,6 +46,7 @@ public class ScoreManager : MonoBehaviour
 		if (hitCount > currentHitCount)
         {
             comboTimer = maxComboTimer;
+            currentHitCount = hitCount;
         }
         if (comboTimer > 0)
         {
@@ -56,6 +57,8 @@ public class ScoreManager : MonoBehaviour
             hitCount = 0;
             currentHitCount = 0;
         }
+
+        ComboModify();
 
         
     }
@@ -127,7 +130,7 @@ public class ScoreManager : MonoBehaviour
         }
         else if (hitCount == 0)
         {
-            comboModifier = 1;
+            comboModifier = 1.0f;
         }
     }
 }

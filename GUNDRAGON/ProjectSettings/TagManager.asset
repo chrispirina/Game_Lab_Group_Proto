@@ -8,6 +8,11 @@ TagManager:
   - GunEmitter
   - MeleeHitbox
   - Enemy
+  - attackCollider
+  - EnemyMeleeHit
+  - enemy_tag
+  - EnemyProjectile
+  - EnemyGunEmitter
   layers:
   - Default
   - TransparentFX
