@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4884040051633302}
   m_Layer: 0
   m_Name: R_Shoulder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 65324435052664582}
   m_Layer: 0
   m_Name: R_fist
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4227144447066924}
   m_Layer: 0
   m_Name: Shot_emitter
-  m_TagString: Untagged
+  m_TagString: EnemyGunEmitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 136844700289161050}
   m_Layer: 0
   m_Name: testEnemy_Core
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 114860957241902832}
   m_Layer: 0
   m_Name: L_fist
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4512378502270048}
   m_Layer: 0
   m_Name: L_Shoulder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,13 +137,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751023448971170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.0000001, y: 0, z: -0.0000023851574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4642287808508278}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!4 &4234001533233662
 Transform:
   m_ObjectHideFlags: 1
@@ -206,14 +206,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279137775194106}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 13.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4324026828685360}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4884040051633302
 Transform:
   m_ObjectHideFlags: 1
@@ -367,7 +367,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!65 &65324435052664582
 BoxCollider:
@@ -391,8 +391,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1.43, z: 1}
+  m_Center: {x: 0.2, y: 0, z: 0}
 --- !u!95 &95998099961969442
 Animator:
   serializedVersion: 3
@@ -422,19 +422,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047151f65432d1e4088223f80b4329bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 100
+  enemyHealth: 50
   wasHit: 0
   attackTimer: 0
   attackCooldown: 0
   attackRate: 0
   attackCooldownMax: 2
   bulletsShot: 0
+  amAttacking: 0
   didAttack: 0
+  enemyDead: 0
   enemyAnim: {fileID: 0}
   PlayerTransform: {fileID: 0}
   PlayerTarget: {fileID: 0}
-  isRanged: 0
-  enemyBullet: {fileID: 0}
+  isRanged: 1
+  enemyBullet: {fileID: 1571112850516666, guid: f0e7bacbdca890e438f40bea922f03b2,
+    type: 2}
   bulletForce: 0
   Damage: 10
 --- !u!114 &114860957241902832

@@ -16,9 +16,9 @@ public class Enemy : MonoBehaviour
     public float attackCooldownMax = 2.0f;
     public int bulletsShot = 0;
 
-    public static bool amAttacking = false;
+    public bool amAttacking = false;
     public bool didAttack = false;
-    public static bool enemyDead = false;
+    public bool enemyDead = false;
 
     public Animator enemyAnim;
     public Transform PlayerTransform;
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         agent.enabled = true;
         PlayerTarget = GameObject.FindGameObjectWithTag("Player");
         PlayerTransform = PlayerTarget.GetComponent<Transform>();
-        gunEmitter = GameObject.FindGameObjectWithTag("EnemyGunEmitter");
+        gunEmitter = gameObject.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).gameObject; //GameObject.FindGameObjectWithTag("EnemyGunEmitter");
         emitterPos = gunEmitter.transform;
     }
 
@@ -64,8 +64,11 @@ public class Enemy : MonoBehaviour
 
         if (agent.enabled == true && isRanged == false)
         {
+            if (amAttacking == false)
+            {
+                transform.LookAt(2 * agent.destination);
+            }
             agent.destination = PlayerDestination;
-            transform.LookAt(2 * agent.destination);
             if (agent.remainingDistance <= 2.0f)
             {
                 if (amAttacking == false && didAttack == false)

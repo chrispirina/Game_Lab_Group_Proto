@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Animator moveAnim;
+    GameObject myCameraHolder;
+    Transform cameraTransform;
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
+    Vector3 forwardDir;
+    Vector3 rightDir;
 
     float horizontal;
     float vertical;
@@ -25,12 +30,15 @@ public class PlayerMovement : MonoBehaviour
     public float jumpStrength = 10.0f; // How high controller can jump.
     public float maxJumpTime = 1.0f; // The maximum limit of the jumpTimer.
     public float jumpTimer = 0.0f; // Counts how long until the controller reaches the apex of its jump. 
-    public bool didJump = false; // Is the controller jumping now.
+    public static bool didJump = false; // Is the controller jumping now.
     
 
 	// Use this for initialization
 	void Start ()
     {
+        moveAnim = GetComponent<Animator>();
+        myCameraHolder = GameObject.FindGameObjectWithTag("CameraHold");
+        cameraTransform = myCameraHolder.transform;
         controller = GetComponent<CharacterController>();
 	}
 	
@@ -39,9 +47,13 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(horizontal, 0, vertical);
+        forwardDir = cameraTransform.TransformDirection(Vector3.forward);
+        forwardDir.y = 0.0f;
+        forwardDir = forwardDir.normalized;
+        rightDir = new Vector3(forwardDir.z, 0.0f, -forwardDir.x);
+        moveDirection = (horizontal*rightDir + vertical*forwardDir);
         moveDirection = moveDirection * moveSpeed;
-
+        
         WalkStart();
 
         DodgeCooldown();
@@ -49,10 +61,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (controller.isGrounded == true)
         {
-            didJump = false;
+            moveAnim.ResetTrigger("StartJump");
+            if (moveAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpIdle") == true)
+            {
+                moveAnim.SetTrigger("StopJump");                
+            }
+            didJump = false;            
             gravityMotion = 0;
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                moveAnim.SetTrigger("StartJump");
+                moveAnim.ResetTrigger("StopJump");
                 gravityMotion = jumpStrength;
                 jumpTimer = maxJumpTime;
             }
@@ -62,7 +81,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (startSpeed > 0 && didDodge == false)
             {
-                dodgeTimer = maxDodgeTime;
+                if (moveAnim.GetCurrentAnimatorStateInfo(0).IsName("Evade") != true)
+                {
+                    moveAnim.SetTrigger("EvadeStarted");
+                }
+                dodgeTimer = maxDodgeTime;                
             }   
             else
             {
@@ -83,12 +106,20 @@ public class PlayerMovement : MonoBehaviour
             moveDirection.z = moveDirection.z / 2;
         }
 
+        if (jumpTimer < 0.4f && didJump == true)
+        {
+            if (moveAnim.GetCurrentAnimatorStateInfo(0).IsName("JumpIdle") == true)
+            {
+                moveAnim.SetTrigger("StopJump");
+            }
+        }
+
         if (didDodge == true)
         {
             moveDirection.x = moveDirection.x * dodgeStrength;
             moveDirection.z = moveDirection.z * dodgeStrength;
         }
-
+        
         controller.Move(moveDirection); // Character moves following transform information.
 	}
 
@@ -96,27 +127,53 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveDirection.x  != 0 || moveDirection.z != 0)
         {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), 0.15F);
             startSpeed += Time.deltaTime;
             isMoving = true;
+            if (moveAnim.GetCurrentAnimatorStateInfo(0).IsName("Run") != true)
+            {
+                moveAnim.ResetTrigger("EvadeFinished");
+                moveAnim.SetTrigger("StartRun");
+            }
+            if (moveAnim.GetCurrentAnimatorStateInfo(0).IsName("Run") == true)
+            {
+                moveAnim.ResetTrigger("EvadeFinished");
+                moveAnim.ResetTrigger("StartRun");
+            }
         }
         
        else if (moveDirection.z == 0 && moveDirection.x == 0)
         {
             startSpeed = 0;
             isMoving = false;
+            if (moveAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle") != true)
+            {
+                moveAnim.ResetTrigger("EvadeFinished");
+                moveAnim.SetTrigger("StopRun");
+            }
+            if (moveAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle") == true)
+            {
+                moveAnim.ResetTrigger("EvadeFinished");
+                moveAnim.ResetTrigger("StopRun");
+            }
         }
     }
 
     public void DodgeCooldown()
-    {
+    {       
         if (dodgeTimer > 0)
         {
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             dodgeTimer -= Time.deltaTime;
             didDodge = true;
         }
         else if (dodgeTimer <= 0)
+        {            
+            didDodge = false;            
+        }
+        if (dodgeTimer <= dodgeTimer/2)
         {
-            didDodge = false;
+            gameObject.GetComponent<CapsuleCollider>().enabled = true;
         }
     }
 
@@ -124,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jumpTimer <= 0)
         {
+                        
             gravityMotion -= 9.8f * gravityMultiplier * Time.deltaTime;
 
         }

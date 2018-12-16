@@ -33,6 +33,13 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
+		if (Player.didPause == true)
+        {
+            Time.timeScale = 0;
+        }
+        else if (Player.didPause == false)
+        {
+            Time.timeScale = 1;
+        }
 	}
 }
